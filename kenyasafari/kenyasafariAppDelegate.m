@@ -7,21 +7,24 @@
 //
 
 #import "kenyasafariAppDelegate.h"
-
-#import "kenyasafariViewController.h"
+#import "frmMain.h"
 
 @implementation kenyasafariAppDelegate
 
+@synthesize window, myMain;
+//@synthesize window=_window;
+//@synthesize viewController=_viewController;
 
-@synthesize window=_window;
 
-@synthesize viewController=_viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-     
-    self.window.rootViewController = self.viewController;
+	frmMain *aController = [[frmMain alloc] initWithNibName:@"frmMain" bundle:nil];
+	self.myMain = aController;
+	[aController release];
+	
+	myMain.view.frame = [UIScreen mainScreen].applicationFrame;
+	[window addSubview:[myMain view]];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -67,8 +70,8 @@
 
 - (void)dealloc
 {
-    [_window release];
-    [_viewController release];
+    [myMain release];
+    [window release];
     [super dealloc];
 }
 

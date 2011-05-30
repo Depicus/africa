@@ -3,19 +3,19 @@
 //  kenyasafari
 //
 //  Created by Brian Slack on 30/05/2011.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Depicus. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@class kenyasafariViewController;
+@class frmMain;
 
 @interface kenyasafariAppDelegate : NSObject <UIApplicationDelegate> {
-
+    UIWindow *window;
+	frmMain *myMain;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
-@property (nonatomic, retain) IBOutlet kenyasafariViewController *viewController;
+@property (nonatomic, retain) frmMain *myMain;
 
 @end
