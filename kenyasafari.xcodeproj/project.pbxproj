@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D3BDA0E913942B7400A69BA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDA0E813942B7400A69BA2 /* UIKit.framework */; };
+		D3BDA0EB13942B7400A69BA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDA0EA13942B7400A69BA2 /* Foundation.framework */; };
+		D3BDA0ED13942B7400A69BA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDA0EC13942B7400A69BA2 /* CoreGraphics.framework */; };
+		D3BDA0F313942B7400A69BA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA0F113942B7400A69BA2 /* InfoPlist.strings */; };
+		D3BDA0F613942B7400A69BA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BDA0F513942B7400A69BA2 /* main.m */; };
+		D3BDA0F913942B7400A69BA2 /* kenyasafariAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BDA0F813942B7400A69BA2 /* kenyasafariAppDelegate.m */; };
+		D3BDA0FC13942B7400A69BA2 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA0FA13942B7400A69BA2 /* MainWindow.xib */; };
+		D3BDA0FF13942B7400A69BA2 /* kenyasafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BDA0FE13942B7400A69BA2 /* kenyasafariViewController.m */; };
+		D3BDA10213942B7400A69BA2 /* kenyasafariViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA10013942B7400A69BA2 /* kenyasafariViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D3BDA0E413942B7400A69BA2 /* kenyasafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kenyasafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3BDA0E813942B7400A69BA2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D3BDA0EA13942B7400A69BA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D3BDA0EC13942B7400A69BA2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D3BDA0F013942B7400A69BA2 /* kenyasafari-Info.plist */ = {isa = PBXFileReference; path = "kenyasafari-Info.plist"; sourceTree = "<group>"; };
+		D3BDA0F213942B7400A69BA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D3BDA0F413942B7400A69BA2 /* kenyasafari-Prefix.pch */ = {isa = PBXFileReference; path = "kenyasafari-Prefix.pch"; sourceTree = "<group>"; };
+		D3BDA0F513942B7400A69BA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D3BDA0F713942B7400A69BA2 /* kenyasafariAppDelegate.h */ = {isa = PBXFileReference; path = kenyasafariAppDelegate.h; sourceTree = "<group>"; };
+		D3BDA0F813942B7400A69BA2 /* kenyasafariAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kenyasafariAppDelegate.m; sourceTree = "<group>"; };
+		D3BDA0FB13942B7400A69BA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D3BDA0FD13942B7400A69BA2 /* kenyasafariViewController.h */ = {isa = PBXFileReference; path = kenyasafariViewController.h; sourceTree = "<group>"; };
+		D3BDA0FE13942B7400A69BA2 /* kenyasafariViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kenyasafariViewController.m; sourceTree = "<group>"; };
+		D3BDA10113942B7400A69BA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/kenyasafariViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D3BDA0E113942B7400A69BA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3BDA0E913942B7400A69BA2 /* UIKit.framework in Frameworks */,
+				D3BDA0EB13942B7400A69BA2 /* Foundation.framework in Frameworks */,
+				D3BDA0ED13942B7400A69BA2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D3BDA0D913942B7400A69BA2 = {
+			isa = PBXGroup;
+			children = (
+				D3BDA0EE13942B7400A69BA2 /* kenyasafari */,
+				D3BDA0E713942B7400A69BA2 /* Frameworks */,
+				D3BDA0E513942B7400A69BA2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D3BDA0E513942B7400A69BA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3BDA0E413942B7400A69BA2 /* kenyasafari.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D3BDA0E713942B7400A69BA2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3BDA0E813942B7400A69BA2 /* UIKit.framework */,
+				D3BDA0EA13942B7400A69BA2 /* Foundation.framework */,
+				D3BDA0EC13942B7400A69BA2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3BDA0EE13942B7400A69BA2 /* kenyasafari */ = {
+			isa = PBXGroup;
+			children = (
+				D3BDA0F713942B7400A69BA2 /* kenyasafariAppDelegate.h */,
+				D3BDA0F813942B7400A69BA2 /* kenyasafariAppDelegate.m */,
+				D3BDA0FA13942B7400A69BA2 /* MainWindow.xib */,
+				D3BDA0FD13942B7400A69BA2 /* kenyasafariViewController.h */,
+				D3BDA0FE13942B7400A69BA2 /* kenyasafariViewController.m */,
+				D3BDA10013942B7400A69BA2 /* kenyasafariViewController.xib */,
+				D3BDA0EF13942B7400A69BA2 /* Supporting Files */,
+			);
+			path = kenyasafari;
+			sourceTree = "<group>";
+		};
+		D3BDA0EF13942B7400A69BA2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3BDA0F013942B7400A69BA2 /* kenyasafari-Info.plist */,
+				D3BDA0F113942B7400A69BA2 /* InfoPlist.strings */,
+				D3BDA0F413942B7400A69BA2 /* kenyasafari-Prefix.pch */,
+				D3BDA0F513942B7400A69BA2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D3BDA0E313942B7400A69BA2 /* kenyasafari */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3BDA10513942B7400A69BA2 /* Build configuration list for PBXNativeTarget "kenyasafari" */;
+			buildPhases = (
+				D3BDA0E013942B7400A69BA2 /* Sources */,
+				D3BDA0E113942B7400A69BA2 /* Frameworks */,
+				D3BDA0E213942B7400A69BA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kenyasafari;
+			productName = kenyasafari;
+			productReference = D3BDA0E413942B7400A69BA2 /* kenyasafari.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D3BDA0DB13942B7400A69BA2 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = D3BDA0DE13942B7400A69BA2 /* Build configuration list for PBXProject "kenyasafari" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D3BDA0D913942B7400A69BA2;
+			productRefGroup = D3BDA0E513942B7400A69BA2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D3BDA0E313942B7400A69BA2 /* kenyasafari */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D3BDA0E213942B7400A69BA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3BDA0F313942B7400A69BA2 /* InfoPlist.strings in Resources */,
+				D3BDA0FC13942B7400A69BA2 /* MainWindow.xib in Resources */,
+				D3BDA10213942B7400A69BA2 /* kenyasafariViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D3BDA0E013942B7400A69BA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3BDA0F613942B7400A69BA2 /* main.m in Sources */,
+				D3BDA0F913942B7400A69BA2 /* kenyasafariAppDelegate.m in Sources */,
+				D3BDA0FF13942B7400A69BA2 /* kenyasafariViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D3BDA0F113942B7400A69BA2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3BDA0F213942B7400A69BA2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D3BDA0FA13942B7400A69BA2 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3BDA0FB13942B7400A69BA2 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D3BDA10013942B7400A69BA2 /* kenyasafariViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3BDA10113942B7400A69BA2 /* en */,
+			);
+			name = kenyasafariViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D3BDA10313942B7400A69BA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D3BDA10413942B7400A69BA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		D3BDA10613942B7400A69BA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kenyasafari/kenyasafari-Prefix.pch";
+				INFOPLIST_FILE = "kenyasafari/kenyasafari-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D3BDA10713942B7400A69BA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kenyasafari/kenyasafari-Prefix.pch";
+				INFOPLIST_FILE = "kenyasafari/kenyasafari-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D3BDA0DE13942B7400A69BA2 /* Build configuration list for PBXProject "kenyasafari" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3BDA10313942B7400A69BA2 /* Debug */,
+				D3BDA10413942B7400A69BA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3BDA10513942B7400A69BA2 /* Build configuration list for PBXNativeTarget "kenyasafari" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3BDA10613942B7400A69BA2 /* Debug */,
+				D3BDA10713942B7400A69BA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D3BDA0DB13942B7400A69BA2 /* Project object */;
+}
