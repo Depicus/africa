@@ -414,6 +414,10 @@
 		D3BDA4351394301C00A69BA2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDA4341394301C00A69BA2 /* QuartzCore.framework */; };
 		D3BDA4371394304D00A69BA2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDA4361394304D00A69BA2 /* CoreLocation.framework */; };
 		D3BDA43F139434E500A69BA2 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA43E139434E500A69BA2 /* Default-Landscape~ipad.png */; };
+		D3E1E3A41396F3640041BF7C /* myUIPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1E3A31396F3640041BF7C /* myUIPageControl.m */; };
+		D3E1E3A71396F4B20041BF7C /* sunnyday.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1E3A61396F4B20041BF7C /* sunnyday.png */; };
+		D3E1E3A91396F51B0041BF7C /* night.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1E3A81396F51B0041BF7C /* night.png */; };
+		D3E1E3AB1396FA370041BF7C /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1E3AA1396FA370041BF7C /* cal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -832,6 +836,11 @@
 		D3BDA4341394301C00A69BA2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D3BDA4361394304D00A69BA2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D3BDA43E139434E500A69BA2 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		D3E1E3A21396F3640041BF7C /* myUIPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myUIPageControl.h; sourceTree = "<group>"; };
+		D3E1E3A31396F3640041BF7C /* myUIPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myUIPageControl.m; sourceTree = "<group>"; };
+		D3E1E3A61396F4B20041BF7C /* sunnyday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunnyday.png; sourceTree = "<group>"; };
+		D3E1E3A81396F51B0041BF7C /* night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = night.png; sourceTree = "<group>"; };
+		D3E1E3AA1396FA370041BF7C /* cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -914,6 +923,8 @@
 				D3BDA3DF13942C2E00A69BA2 /* Close.png */,
 				D3BDA3E013942C2E00A69BA2 /* Icon.png */,
 				D3BDA3E113942C2E00A69BA2 /* iPad.png */,
+				D3E1E3A61396F4B20041BF7C /* sunnyday.png */,
+				D3E1E3A81396F51B0041BF7C /* night.png */,
 				D3BDA3E213942C2E00A69BA2 /* mapBG.png */,
 				D3BDA3E313942C2E00A69BA2 /* pinGray.png */,
 				D3BDA3E413942C2E00A69BA2 /* pinOrange.png */,
@@ -927,6 +938,8 @@
 				D3BDA42E13942E9100A69BA2 /* mapAnnotation.m */,
 				D3BDA0FA13942B7400A69BA2 /* MainWindow.xib */,
 				D3BDA0F513942B7400A69BA2 /* main.m */,
+				D3E1E3A21396F3640041BF7C /* myUIPageControl.h */,
+				D3E1E3A31396F3640041BF7C /* myUIPageControl.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1409,6 +1422,7 @@
 		D3BDA41B13942C8000A69BA2 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				D3E1E3AA1396FA370041BF7C /* cal.png */,
 				D3BDA41C13942CB300A69BA2 /* popWeb.h */,
 				D3BDA41D13942CB300A69BA2 /* popWeb.m */,
 				D3BDA41E13942CB300A69BA2 /* popWeb.xib */,
@@ -1860,6 +1874,9 @@
 				D3BDA42A13942CDB00A69BA2 /* frmIntro.xib in Resources */,
 				D3BDA42C13942CDB00A69BA2 /* frmMain.xib in Resources */,
 				D3BDA43F139434E500A69BA2 /* Default-Landscape~ipad.png in Resources */,
+				D3E1E3A71396F4B20041BF7C /* sunnyday.png in Resources */,
+				D3E1E3A91396F51B0041BF7C /* night.png in Resources */,
+				D3E1E3AB1396FA370041BF7C /* cal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1876,6 +1893,7 @@
 				D3BDA42413942CB300A69BA2 /* popWebSite.m in Sources */,
 				D3BDA42B13942CDB00A69BA2 /* frmMain.m in Sources */,
 				D3BDA42F13942E9100A69BA2 /* mapAnnotation.m in Sources */,
+				D3E1E3A41396F3640041BF7C /* myUIPageControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1984,6 +2002,7 @@
 				D3BDA10713942B7400A69BA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

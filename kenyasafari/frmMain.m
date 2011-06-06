@@ -99,7 +99,7 @@ BOOL isFlipping = FALSE;
 	splashView.alpha = 0.0f;
 	[UIView commitAnimations];
     
-    
+    //pinch
     imgMain.userInteractionEnabled = YES;
     UIPinchGestureRecognizer *pgr = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
     pgr.delegate = self;
@@ -1278,7 +1278,9 @@ float lastScaleFactor = 1.0f;
     isFlipping = TRUE;
     swipeLength = 0;
     currentPicture++;
-    pcMain.currentPage += 1;
+    
+    pcMain.alpha=1.0f;
+    if (currentPicture > 1) pcMain.currentPage += 1;
     
 
     NSArray  * aCP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:46],[NSNumber numberWithInteger:138],[NSNumber numberWithInteger:241],[NSNumber numberWithInteger:348],
