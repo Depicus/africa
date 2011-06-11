@@ -58,6 +58,8 @@
     UIPopoverController *pcWeb;
     UIPopoverController *pcDiary;
     UIPopoverController *pcVideo;
+    UILabel *lblCredits;
+    UIImageView *imgCreditMask;
 }
 
 
@@ -65,6 +67,8 @@
 @property (nonatomic, retain) UIPopoverController *pcWeb;
 @property (nonatomic, retain) UIPopoverController *pcDiary;
 @property (nonatomic, retain) UIPopoverController *pcVideo;
+@property (nonatomic, retain) IBOutlet UILabel *lblCredits;
+@property (nonatomic, retain) IBOutlet UIImageView *imgCreditMask;
 
 
 - (IBAction)hideIntro;
@@ -81,10 +85,11 @@
 - (IBAction) mapTypeChanged;
 - (IBAction)setWallpaper:(id)sender;
 - (void) setCurrentPicture:(int)pic;
-- (void) doSwipeRight;
+- (void) doSwipeRightToLeft;
 - (void) doSwipeLeft;
 - (IBAction)getDiary:(id)sender;
 - (IBAction)setAsWallpaper:(id)sender;
+- (void) animCredits;
 //- (IBAction) playIntroMusic;
 
 @end

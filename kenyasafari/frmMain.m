@@ -15,6 +15,8 @@
 #import "popWebSite.h"
 
 @implementation frmMain
+@synthesize lblCredits;
+@synthesize imgCreditMask;
 
 @synthesize maGPSData,pcWeb,pcDiary,pcVideo;
 
@@ -106,7 +108,6 @@ BOOL isFlipping = FALSE;
     [imgMain addGestureRecognizer:pgr];
     [pgr release];
     
-    
     [super viewDidLoad];
 }
 
@@ -124,7 +125,7 @@ BOOL isFlipping = FALSE;
     lblTitle.alpha=0.0f;
     lblTitle.hidden = FALSE;
     btnWeb.alpha=0.0f;
-    btnWeb.hidden= FALSE;
+    //btnWeb.hidden= FALSE;
     btnDiary.alpha=0.0f;
     btnDiary.hidden= FALSE;
     btnVideo.alpha=0.0f;
@@ -137,7 +138,7 @@ BOOL isFlipping = FALSE;
     [UIView setAnimationDuration:1.5];
     vIntro.alpha=0.0f;
     lblTitle.alpha=1.0f;
-    btnWeb.alpha=1.0f;
+    //btnWeb.alpha=1.0f;
     btnDiary.alpha=1.0f;
     btnWallpaper.alpha=1.0f;
     pcMain.alpha=1.0f;
@@ -348,25 +349,33 @@ BOOL isFlipping = FALSE;
 
 -(void) showInfo
 {
+    NSArray  * blankPage = [NSArray arrayWithObjects:[NSNumber numberWithInteger:100],[NSNumber numberWithInteger:200],[NSNumber numberWithInteger:300],[NSNumber numberWithInteger:400],
+                            [NSNumber numberWithInteger:500],[NSNumber numberWithInteger:600],[NSNumber numberWithInteger:700],[NSNumber numberWithInteger:800],
+                            [NSNumber numberWithInteger:900],[NSNumber numberWithInteger:1000],[NSNumber numberWithInteger:2000],nil];
+    
+    BOOL prevView = canShowInfo;
+    if ([blankPage containsObject:[NSNumber numberWithInt:currentPicture]])
+    {
+        canShowInfo = FALSE;
+        //NSLog(@"isEmpty count = %i",currentPicture);
+    }
     if (canShowInfo) 
     {
-        //NSLog(@"showInfo canShowInfo = t");
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:1.0];
         lblInfo.alpha=0.7f;
         tvMain.alpha=1.0f;
         [UIView commitAnimations];
-        //canShowInfo = FALSE;
     }
     else
     {
-        //NSLog(@"showInfo canShowInfo = f");
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:1.0];
         lblInfo.alpha=0.0f;
         tvMain.alpha=0.0f;
         [UIView commitAnimations];
     }
+    canShowInfo = prevView;
 }
 
 - (void) showMap
@@ -615,7 +624,7 @@ float lastScaleFactor = 1.0f;
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    NSLog(@"SAVE IMAGE COMPLETE");
+    //NSLog(@"SAVE IMAGE COMPLETE");
     if(error != nil) {
         NSLog(@"ERROR SAVING:%@",[error localizedDescription]);
     }
@@ -623,11 +632,9 @@ float lastScaleFactor = 1.0f;
 
 -(void) killPop:(NSNotification *)notif {
     
-    NSLog(@"popover about to be dismissed %@", notif);
+    //NSLog(@"popover about to be dismissed %@", notif);
     [self.pcDiary dismissPopoverAnimated:YES];
-    
-    //[self setCurrentPicture:101];
-    [self doSwipeRight];
+    [self doSwipeRightToLeft];
     pcMain.currentPage = 0;
     
 }
@@ -641,9 +648,7 @@ float lastScaleFactor = 1.0f;
 }
 
 //---called when the popover view is dismissed---
-- (void)popoverControllerDidDismissPopover:
-(UIPopoverController *)popoverController {
-    
+- (void)popoverControllerDidDismissPopover: (UIPopoverController *)popoverController {
     NSLog(@"popover dismissed");    
 }
 
@@ -732,13 +737,14 @@ float lastScaleFactor = 1.0f;
     lblText.adjustsFontSizeToFitWidth = TRUE;
     lblText.lineBreakMode = UILineBreakModeWordWrap;
     [cell.contentView addSubview:lblText];
-
+    NSString *lat = @"";
+    NSString *lon = @"";
     switch (indexPath.row) {
         case 0: {
             lblText.text = [iptcDic objectForKey:(NSString *)kCGImagePropertyIPTCCaptionAbstract];
             //NSLog(@"exifDic properties: %@", myMetadata); //all data
             //set map
-            NSString *lat = @"";
+            
             if ([[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLatitudeRef] isEqualToString:@"S"])
             {
                 lat = [NSString stringWithFormat:@"-%@",[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLatitude]];
@@ -748,7 +754,7 @@ float lastScaleFactor = 1.0f;
                 lat = [NSString stringWithFormat:@"%@",[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLatitude]];
             }
             
-            NSString *lon = @"";
+            
             if ([[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLongitudeRef] isEqualToString:@"W"])
             {
                 lon = [NSString stringWithFormat:@"-%@",[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLongitude]];
@@ -757,14 +763,10 @@ float lastScaleFactor = 1.0f;
             {
                 lon = [NSString stringWithFormat:@"%@",[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLongitude]];
             }
-            //NSLog(@"%@", lat);
             if (![lat isEqualToString:@"(null)"])
             {
                 //ToDO check going forward
                 [self.maGPSData addObject:[NSString stringWithFormat:@"%@,%@",lat,lon]];
-                
-                //NSLog(@"madata count = %i",[self.maGPSData count]);
-                
                 
                 //[self.fDatabaseArray count]
                 //[fDatabaseArray objectAtIndex:indexPath.row];
@@ -857,12 +859,29 @@ float lastScaleFactor = 1.0f;
         }
         case 7: {
             lblLabel.text = @"Latitude:";
-            lblText.text = [NSString stringWithFormat:@"%.4f %@",[[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLatitude] floatValue],[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLatitudeRef]];
+            lat = [NSString stringWithFormat:@"%@",[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLatitude]];
+            if ([lat isEqualToString:@"(null)"])
+            {
+                lblText.text = @"None";
+            }
+            else
+            {
+                lblText.text = [NSString stringWithFormat:@"%.4f %@",[[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLatitude] floatValue],[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLatitudeRef]];
+            }
+            
             break;
         }
         case 8: {
             lblLabel.text = @"Longitude:";
+            lat = [NSString stringWithFormat:@"%@",[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLatitude]];
+            if ([lat isEqualToString:@"(null)"])
+            {
+                lblText.text = @"None";
+            }
+            else
+            {
             lblText.text = [NSString stringWithFormat:@"%.4f %@",[[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLongitude] floatValue],[gpsDic objectForKey:(NSString*)kCGImagePropertyGPSLongitudeRef]];
+            }
             break;
         }
         default:
@@ -909,7 +928,7 @@ float lastScaleFactor = 1.0f;
  fadeAnimation.removedOnCompletion = NO;*/
 
 
-
+#pragma mark -
 #pragma mark Swipe Left
 
 - (void) swipeRight:(UIImageView *)viewToOpen duration:(NSTimeInterval)duration isLeft:(BOOL)isLeft {
@@ -1016,7 +1035,7 @@ float lastScaleFactor = 1.0f;
     theGroup.removedOnCompletion = NO;
     theGroup.fillMode = kCAFillModeForwards;
     [viewToOpen.layer addAnimation:theGroup forKey:@"flipViewOpen"];
-    NSLog(@"l2m %f %f", imgMain.center.x,imgMain.center.y);
+    //NSLog(@"l2m %f %f", imgMain.center.x,imgMain.center.y);
 }
 
 - (void) middleToRight:(UIView *)viewToOpen duration:(NSTimeInterval)duration {
@@ -1054,19 +1073,9 @@ float lastScaleFactor = 1.0f;
 
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag {
 	NSString* value = [theAnimation valueForKey:@"viewToOpenTag"];
-    //[self.view bringSubviewToFront:vMap];
-    
     if ([value isEqualToString:@"rightToMiddle"])
     {
-        //NSLog(@"animationDidStop rightToMiddle");
-        //[self.view sendSubviewToBack:imgMain];
-        //[self.view sendSubviewToBack:imgRight];
-		//[self middleToLeft:imgLeft duration:2.0f];
-        //imgRight.hidden = TRUE;
         [self swipeRight:imgLeft duration:pageSwipeSpeed isLeft:TRUE];
-        
-        
-        
         UIImage *imgCaptured = imgMain.image;
         CGImageRef imageRef = CGImageCreateWithImageInRect(imgCaptured.CGImage, CGRectMake(0, 0, 512, 683));
         [imgLeft setImage:[UIImage imageWithCGImage:imageRef]];
@@ -1082,8 +1091,6 @@ float lastScaleFactor = 1.0f;
         [self.view bringSubviewToFront:imgMain];
         [self.view bringSubviewToFront:tvMain];
         [self.view bringSubviewToFront:vMap];
-        //NSLog(@"animationDidStop middleToLeft");
-        
         imgLeftFold.alpha=0.0f;
         imgLeft.alpha=0.0f;
         [self showInfo];
@@ -1097,29 +1104,15 @@ float lastScaleFactor = 1.0f;
     
     if ([value isEqualToString:@"leftToMiddle"])
     {
-        
         [imgLeft setImage:imgLeftFold.image];
         UIImageWriteToSavedPhotosAlbum(imgLeftFold.image, nil, nil, nil);
-
         imgRight.alpha=1.0f;
-        //imgLeftFold.alpha=1.0f;
         imgLeft.alpha=0.0f;
-        
-       
-        NSLog(@"animationDidStop leftToMiddle 1");
-
-
 		[self middleToRight:imgRight duration:pageSwipeSpeed];
 		return;
     }
-    
-    
-    
-    //
     if ([value isEqualToString:@"middleToRight"])
     {
-        NSLog(@"animationDidStop middleToRight 2");
-        
         [self.view sendSubviewToBack:imgLeft];
         [self.view sendSubviewToBack:imgLeftFold];
         [self.view sendSubviewToBack:imgRight];
@@ -1128,9 +1121,6 @@ float lastScaleFactor = 1.0f;
         [self.view bringSubviewToFront:vMap];
         
         NSString *mypic = [NSString stringWithFormat:@"%d", currentPicture];
-        NSLog(@"currentPicture is :%d",currentPicture);
-        
-        
         CGRect screenRectLeft = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
         UIGraphicsBeginImageContext(screenRectLeft.size);
         CGContextRef ctxLeft = UIGraphicsGetCurrentContext();
@@ -1147,6 +1137,7 @@ float lastScaleFactor = 1.0f;
         
 		imgRight.alpha=0.0f;
         imgLeftFold.alpha=0.0f;
+        [self showInfo];
 		return;
     }
     
@@ -1174,7 +1165,7 @@ float lastScaleFactor = 1.0f;
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	NSLog(@"touchesEnded %i", swipeLength );
+	//NSLog(@"touchesEnded %i", swipeLength );
     if (isShowingIntro || isFlipping) 
     {
         swipeLength = 0;
@@ -1184,11 +1175,9 @@ float lastScaleFactor = 1.0f;
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.5];
         [UIView setAnimationDelegate:self];
-        [UIView setAnimationDidStopSelector:@selector(doSwipeRight)];
+        [UIView setAnimationDidStopSelector:@selector(doSwipeRightToLeft)];
         imgMain.transform = CGAffineTransformMakeScale(1.0f,1.0f);
         [UIView commitAnimations];
-        
-        //[self doSwipeRight];
         return;
     }
     if (swipeLength < -170) 
@@ -1199,7 +1188,6 @@ float lastScaleFactor = 1.0f;
         [UIView setAnimationDidStopSelector:@selector(doSwipeLeft)];
         imgMain.transform = CGAffineTransformMakeScale(1.0f,1.0f);
         [UIView commitAnimations];
-        //[self doSwipeLeft];
         return;
     }
     
@@ -1224,7 +1212,7 @@ float lastScaleFactor = 1.0f;
             
             int tapDistance = abs(currentPosition.x - tapLocation.x);
             
-            NSLog(@"double tap x = %f, y = %f     tapDistance %d", currentPosition.x, currentPosition.y,tapDistance); //34 350
+            //NSLog(@"double tap x = %f, y = %f     tapDistance %d", currentPosition.x, currentPosition.y,tapDistance); //34 350
             if (tapDistance > 120)  
             {
                 break;
@@ -1273,29 +1261,28 @@ float lastScaleFactor = 1.0f;
 }
 
 
-- (void) doSwipeRight
+- (void) doSwipeRightToLeft
 {
     isFlipping = TRUE;
     swipeLength = 0;
     currentPicture++;
     
-    pcMain.alpha=1.0f;
-    if (currentPicture > 1) pcMain.currentPage += 1;
+    pcMain.currentPage += 1;
     
 
-    NSArray  * aCP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:46],[NSNumber numberWithInteger:138],[NSNumber numberWithInteger:241],[NSNumber numberWithInteger:348],
+    NSArray  * aCP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:45],[NSNumber numberWithInteger:138],[NSNumber numberWithInteger:241],[NSNumber numberWithInteger:349],
                       [NSNumber numberWithInteger:425],[NSNumber numberWithInteger:515],[NSNumber numberWithInteger:632],[NSNumber numberWithInteger:740],
                       [NSNumber numberWithInteger:812],[NSNumber numberWithInteger:927],nil];
-    NSArray  * aNP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:101],[NSNumber numberWithInteger:201],[NSNumber numberWithInteger:301],[NSNumber numberWithInteger:401],
-                      [NSNumber numberWithInteger:501],[NSNumber numberWithInteger:601],[NSNumber numberWithInteger:701],[NSNumber numberWithInteger:801],
-                      [NSNumber numberWithInteger:901],[NSNumber numberWithInteger:1001],nil];
+    NSArray  * aNP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:100],[NSNumber numberWithInteger:200],[NSNumber numberWithInteger:300],[NSNumber numberWithInteger:400],
+                      [NSNumber numberWithInteger:500],[NSNumber numberWithInteger:600],[NSNumber numberWithInteger:700],[NSNumber numberWithInteger:800],
+                      [NSNumber numberWithInteger:900],[NSNumber numberWithInteger:1000],nil];
 
     if ([aCP containsObject:[NSNumber numberWithInt:currentPicture]])
     {
         [mkMain removeAnnotations:mkMain.annotations];
         [self.maGPSData removeAllObjects];
         unsigned int elementNumber = [aCP indexOfObject: [NSNumber numberWithInt:currentPicture]];
-        NSLog(@")))))))))))))    fond it %i at position %i", currentPicture, elementNumber);
+        //NSLog(@")))))))))))))    fond it %i at position %i", currentPicture, elementNumber);
         currentPicture = [[aNP objectAtIndex:elementNumber] integerValue];
         if (elementNumber < (aCP.count -1) )
         {
@@ -1315,12 +1302,14 @@ float lastScaleFactor = 1.0f;
     {
         pcMain.hidden = TRUE;
         currentPicture = 2000;  
+        [self animCredits];
     }
-    NSLog(@"currentPicture it    at position %i", currentPicture);
+    //NSLog(@"currentPicture it    at position %i", currentPicture);
     imgLeft.alpha=1.0f;
     imgLeftFold.alpha=1.0f;
+    
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:(pageSwipeSpeed / 2)];
+    [UIView setAnimationDuration:(pageSwipeSpeed / 3)];
     lblInfo.alpha=0.0f;
     tvMain.alpha=0.0f;
     vMap.alpha=0.0f;
@@ -1338,7 +1327,6 @@ float lastScaleFactor = 1.0f;
     CGImageRelease(imageRefRight);
     UIGraphicsEndImageContext();
     imgRight.alpha=1.0f;
-    //currentPicture
     NSString *mypic = [NSString stringWithFormat:@"%d", currentPicture];
     //NSLog(@"currentPicture is :%d",currentPicture);
     
@@ -1362,33 +1350,42 @@ float lastScaleFactor = 1.0f;
 {
     swipeLength = 0;
     if (currentPicture == 1) return;
-    isFlipping = TRUE;
-    NSLog(@"currentPicture is :%d",currentPicture);
-    currentPicture--;
-    NSLog(@"Swipe left to right current pic is %i", currentPicture);  
+    isFlipping = TRUE;    //NSLog(@"currentPicture is :%d",currentPicture);
+    currentPicture--;     //NSLog(@"Swipe left to right current pic is %i", currentPicture);  
     pcMain.currentPage -= 1;
     
-    NSArray  * aCP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:45],[NSNumber numberWithInteger:137],[NSNumber numberWithInteger:240],[NSNumber numberWithInteger:347],
+    if (currentPicture == 1999)
+    {
+        currentPicture = 1030; 
+        pcMain.hidden = FALSE;
+    }
+    
+    NSArray  * aCP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:44],[NSNumber numberWithInteger:137],[NSNumber numberWithInteger:240],[NSNumber numberWithInteger:347],
                       [NSNumber numberWithInteger:424],[NSNumber numberWithInteger:514],[NSNumber numberWithInteger:631],[NSNumber numberWithInteger:739],
                       [NSNumber numberWithInteger:811],[NSNumber numberWithInteger:926],nil];
-    NSArray  * aNP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:100],[NSNumber numberWithInteger:200],[NSNumber numberWithInteger:300],[NSNumber numberWithInteger:400],
-                      [NSNumber numberWithInteger:500],[NSNumber numberWithInteger:600],[NSNumber numberWithInteger:700],[NSNumber numberWithInteger:800],
-                      [NSNumber numberWithInteger:900],[NSNumber numberWithInteger:1000],nil];
+    NSArray  * aNP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:99],[NSNumber numberWithInteger:199],[NSNumber numberWithInteger:299],[NSNumber numberWithInteger:399],
+                      [NSNumber numberWithInteger:499],[NSNumber numberWithInteger:599],[NSNumber numberWithInteger:699],[NSNumber numberWithInteger:799],
+                      [NSNumber numberWithInteger:899],[NSNumber numberWithInteger:999],nil];
     
     if ([aNP containsObject:[NSNumber numberWithInt:currentPicture]])
     {
         [mkMain removeAnnotations:mkMain.annotations];
         [self.maGPSData removeAllObjects];
         unsigned int elementNumber = [aNP indexOfObject: [NSNumber numberWithInt:currentPicture]];
-        NSLog(@"************  found it %i at position %i", currentPicture, elementNumber);
+        //NSLog(@"************  found it %i at position %i", currentPicture, elementNumber);
         currentPicture = [[aCP objectAtIndex:elementNumber] integerValue];
         int finalPictureInSet = [[aNP objectAtIndex:elementNumber] integerValue];
         pcMain.numberOfPages = (currentPicture - (finalPictureInSet - 100));
-        NSLog(@"number of pages = %i and final pic is %i", pcMain.numberOfPages, (finalPictureInSet - 100));
+        //NSLog(@"number of pages = %i and final pic is %i", pcMain.numberOfPages, (finalPictureInSet - 100));
         pcMain.currentPage = pcMain.numberOfPages;
     }
     
-    NSLog(@"currentPicture it    at position %i", currentPicture);
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:(pageSwipeSpeed / 3)];
+    lblInfo.alpha=0.0f;
+    tvMain.alpha=0.0f;
+    vMap.alpha=0.0f;
+    [UIView commitAnimations];
     
     imgLeft.alpha=1.0f;
     imgLeftFold.alpha=1.0f;
@@ -1418,6 +1415,7 @@ float lastScaleFactor = 1.0f;
     imgLeftFold.alpha=1.0f;
     UIGraphicsEndImageContext();
     [self leftToMiddle:imgLeft duration:pageSwipeSpeed];
+    [tvMain reloadData];
 }
 
 #pragma mark -
@@ -1480,7 +1478,31 @@ float lastScaleFactor = 1.0f;
     }
     
 }
+-(void) hideCredits
+{
+    lblCredits.hidden = TRUE;
+    imgCreditMask.hidden = TRUE;
+}
 
+-(void) animCredits
+{
+    lblCredits.frame = CGRectMake(lblCredits.frame.origin.x, 550, lblCredits.frame.size.width, lblCredits.frame.size.height);
+    lblCredits.hidden = FALSE;
+    imgCreditMask.hidden = FALSE;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:30.0f];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    // The transform matrix
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -1000);
+    lblCredits.transform = transform;
+    // Commit the changes
+    [UIView commitAnimations];
+    tmArrowRight = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(hideCredits) userInfo:nil repeats:NO];
+}
+
+#pragma mark -
 #pragma mark End
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -1546,6 +1568,8 @@ float lastScaleFactor = 1.0f;
     btnVideo = nil;
     [btnWallpaper release];
     btnWallpaper = nil;
+    [self setLblCredits:nil];
+    [self setImgCreditMask:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -1584,6 +1608,8 @@ float lastScaleFactor = 1.0f;
     [btnDiary release];
     [btnVideo release];
     [btnWallpaper release];
+    [lblCredits release];
+    [imgCreditMask release];
     [super dealloc];
 }
 

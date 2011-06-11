@@ -912,7 +912,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="270955655"/>
 						<bool key="IBUIOpaque">NO</bool>
-						<int key="IBUITag">45</int>
+						<int key="IBUITag">44</int>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
