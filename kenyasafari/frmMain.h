@@ -90,6 +90,9 @@
 - (IBAction)getDiary:(id)sender;
 - (IBAction)setAsWallpaper:(id)sender;
 - (void) animCredits;
+- (void) hideCredits;
+- (void) stopCredits;
+
 //- (IBAction) playIntroMusic;
 
 @end

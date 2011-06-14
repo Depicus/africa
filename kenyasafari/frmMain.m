@@ -223,7 +223,7 @@ BOOL isFlipping = FALSE;
     [self setMapPin:@"Aberdares" subtitle:@"27th/28th December" pin:@"green" lat:-0.3685 lon:36.8421];
     [self setMapPin:@"Lake Nakuru" subtitle:@"28th/29th December" pin:@"green" lat:-0.4030 lon:36.1032];
     [self setMapPin:@"Lake Naivasha" subtitle:@"29th/30th December" pin:@"green" lat:-0.7633 lon:36.4239];
-    [self setMapPin:@"Masai Mara" subtitle:@"30th December to 2nd January" pin:@"green" lat:-1.518 lon:35.0809];
+    [self setMapPin:@"Maasai Mara" subtitle:@"30th December to 2nd January" pin:@"green" lat:-1.518 lon:35.0809];
     
     /*
      tsavo west
@@ -353,6 +353,7 @@ BOOL isFlipping = FALSE;
                             [NSNumber numberWithInteger:500],[NSNumber numberWithInteger:600],[NSNumber numberWithInteger:700],[NSNumber numberWithInteger:800],
                             [NSNumber numberWithInteger:900],[NSNumber numberWithInteger:1000],[NSNumber numberWithInteger:2000],nil];
     
+    tvMain.hidden = FALSE;
     BOOL prevView = canShowInfo;
     if ([blankPage containsObject:[NSNumber numberWithInt:currentPicture]])
     {
@@ -1095,6 +1096,11 @@ float lastScaleFactor = 1.0f;
         imgLeft.alpha=0.0f;
         [self showInfo];
         isFlipping = FALSE;
+        //NSLog(@"currentPicture  = %i", currentPicture);
+        if (currentPicture == 2000) 
+        {
+            [self animCredits];
+        }
 		return;
     }
     
@@ -1138,6 +1144,12 @@ float lastScaleFactor = 1.0f;
 		imgRight.alpha=0.0f;
         imgLeftFold.alpha=0.0f;
         [self showInfo];
+        
+        
+        
+        
+        
+        
 		return;
     }
     
@@ -1165,7 +1177,7 @@ float lastScaleFactor = 1.0f;
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	//NSLog(@"touchesEnded %i", swipeLength );
+	NSLog(@"touchesEnded %i", swipeLength );
     if (isShowingIntro || isFlipping) 
     {
         swipeLength = 0;
@@ -1182,6 +1194,7 @@ float lastScaleFactor = 1.0f;
     }
     if (swipeLength < -170) 
     {
+        NSLog(@"touchesEnded -170");
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.5];
         [UIView setAnimationDelegate:self];
@@ -1205,6 +1218,7 @@ float lastScaleFactor = 1.0f;
             tapLocation.y = currentPosition.y;
             break;
         case 2: //double tap
+            if (currentPicture == 2000) return;
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(singleTap) object:nil];
             tapCount = 0;
             
@@ -1302,7 +1316,7 @@ float lastScaleFactor = 1.0f;
     {
         pcMain.hidden = TRUE;
         currentPicture = 2000;  
-        [self animCredits];
+        
     }
     //NSLog(@"currentPicture it    at position %i", currentPicture);
     imgLeft.alpha=1.0f;
@@ -1358,6 +1372,7 @@ float lastScaleFactor = 1.0f;
     {
         currentPicture = 1030; 
         pcMain.hidden = FALSE;
+        [self stopCredits];
     }
     
     NSArray  * aCP = [NSArray arrayWithObjects:[NSNumber numberWithInteger:44],[NSNumber numberWithInteger:137],[NSNumber numberWithInteger:240],[NSNumber numberWithInteger:347],
@@ -1480,26 +1495,60 @@ float lastScaleFactor = 1.0f;
 }
 -(void) hideCredits
 {
+    //NSLog(@"hideCredits");
     lblCredits.hidden = TRUE;
     imgCreditMask.hidden = TRUE;
 }
 
 -(void) animCredits
 {
-    lblCredits.frame = CGRectMake(lblCredits.frame.origin.x, 550, lblCredits.frame.size.width, lblCredits.frame.size.height);
-    lblCredits.hidden = FALSE;
-    imgCreditMask.hidden = FALSE;
+    [lblCredits.layer removeAllAnimations];
+    //NSLog(@"animCredits   x=%f   y=%f  w=%f  h=%f",lblCredits.frame.origin.x, lblCredits.frame.origin.y, lblCredits.frame.size.width, lblCredits.frame.size.height );
+    //lblCredits.frame = CGRectMake(lblCredits.frame.origin.x, 550, lblCredits.frame.size.width, lblCredits.frame.size.height);
+
+    lblCredits.transform = CGAffineTransformMakeTranslation(0, 0);     
+    CGRect frame = lblCredits.frame;
+    frame.origin.y = 550.0;
+    lblCredits.frame = frame;
     
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:30.0f];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:pageSwipeSpeed * 2];
+    lblCredits.hidden = FALSE;
+    imgCreditMask.hidden = FALSE;
+    [UIView commitAnimations];
+    //NSLog(@"animCredits 2   x=%f   y=%f  w=%f  h=%f",lblCredits.frame.origin.x, lblCredits.frame.origin.y, lblCredits.frame.size.width, lblCredits.frame.size.height );
+    
+    [UILabel beginAnimations:nil context:NULL];
+    [UILabel setAnimationDuration:30.0f];
+    [UILabel setAnimationCurve:UIViewAnimationCurveLinear];
+    [UILabel setAnimationBeginsFromCurrentState:YES];
+    [UILabel setAnimationDelegate:self];
+    [UILabel setAnimationDidStopSelector:@selector(creditsHaveEnded)];
     // The transform matrix
     CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -1000);
     lblCredits.transform = transform;
     // Commit the changes
-    [UIView commitAnimations];
-    tmArrowRight = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(hideCredits) userInfo:nil repeats:NO];
+    [UILabel commitAnimations];
+    //tmArrowRight = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(hideCredits) userInfo:nil repeats:NO];
+    //NSLog(@"animCredits 3   x=%f   y=%f",lblCredits.frame.origin.x, lblCredits.frame.origin.y);
+}
+
+-(void) stopCredits
+{
+    [UILabel beginAnimations:nil context:NULL];
+    [UILabel setAnimationDuration:0.0f];
+    [UILabel setAnimationCurve:UIViewAnimationCurveLinear];
+    [UILabel setAnimationBeginsFromCurrentState:YES];
+    [UILabel setAnimationDelegate:self];
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, 0);
+    lblCredits.transform = transform;
+    [UILabel commitAnimations];
+    [self hideCredits];
+}
+
+-(void) creditsHaveEnded
+{
+    [self stopCredits];
 }
 
 #pragma mark -
