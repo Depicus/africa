@@ -3,7 +3,7 @@
 //  kenyasafari
 //
 //  Created by Brian Slack on 30/05/2011.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Depicus. All rights reserved.
 //
 
 #import "kenyasafariAppDelegate.h"
@@ -12,10 +12,6 @@
 @implementation kenyasafariAppDelegate
 
 @synthesize window, myMain;
-//@synthesize window=_window;
-//@synthesize viewController=_viewController;
-
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

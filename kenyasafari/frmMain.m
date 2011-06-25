@@ -1503,8 +1503,6 @@ float lastScaleFactor = 1.0f;
 -(void) animCredits
 {
     [lblCredits.layer removeAllAnimations];
-    //NSLog(@"animCredits   x=%f   y=%f  w=%f  h=%f",lblCredits.frame.origin.x, lblCredits.frame.origin.y, lblCredits.frame.size.width, lblCredits.frame.size.height );
-    //lblCredits.frame = CGRectMake(lblCredits.frame.origin.x, 550, lblCredits.frame.size.width, lblCredits.frame.size.height);
 
     lblCredits.transform = CGAffineTransformMakeTranslation(0, 0);     
     CGRect frame = lblCredits.frame;
@@ -1516,21 +1514,17 @@ float lastScaleFactor = 1.0f;
     lblCredits.hidden = FALSE;
     imgCreditMask.hidden = FALSE;
     [UIView commitAnimations];
-    //NSLog(@"animCredits 2   x=%f   y=%f  w=%f  h=%f",lblCredits.frame.origin.x, lblCredits.frame.origin.y, lblCredits.frame.size.width, lblCredits.frame.size.height );
-    
+
     [UILabel beginAnimations:nil context:NULL];
     [UILabel setAnimationDuration:30.0f];
     [UILabel setAnimationCurve:UIViewAnimationCurveLinear];
     [UILabel setAnimationBeginsFromCurrentState:YES];
     [UILabel setAnimationDelegate:self];
     [UILabel setAnimationDidStopSelector:@selector(creditsHaveEnded)];
-    // The transform matrix
     CGAffineTransform transform = CGAffineTransformMakeTranslation(0, -1000);
     lblCredits.transform = transform;
-    // Commit the changes
     [UILabel commitAnimations];
-    //tmArrowRight = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(hideCredits) userInfo:nil repeats:NO];
-    //NSLog(@"animCredits 3   x=%f   y=%f",lblCredits.frame.origin.x, lblCredits.frame.origin.y);
+
 }
 
 -(void) stopCredits

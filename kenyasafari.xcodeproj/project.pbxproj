@@ -17,6 +17,7 @@
 		D35872ED13A2B59C006F5966 /* 800.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D35872EC13A2B59C006F5966 /* 800.jpg */; };
 		D35872EF13A2B5AB006F5966 /* 900.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D35872EE13A2B5AB006F5966 /* 900.jpg */; };
 		D35872F113A2B5BC006F5966 /* 1000.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D35872F013A2B5BC006F5966 /* 1000.jpg */; };
+		D39B255113A7EFD900125904 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D39B255013A7EFD900125904 /* Icon.png */; };
 		D3BDA0E913942B7400A69BA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDA0E813942B7400A69BA2 /* UIKit.framework */; };
 		D3BDA0EB13942B7400A69BA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDA0EA13942B7400A69BA2 /* Foundation.framework */; };
 		D3BDA0ED13942B7400A69BA2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BDA0EC13942B7400A69BA2 /* CoreGraphics.framework */; };
@@ -383,7 +384,6 @@
 		D3BDA3EB13942C2E00A69BA2 /* ArrowPointUp.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA3DD13942C2E00A69BA2 /* ArrowPointUp.png */; };
 		D3BDA3EC13942C2E00A69BA2 /* Buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA3DE13942C2E00A69BA2 /* Buttons.png */; };
 		D3BDA3ED13942C2E00A69BA2 /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA3DF13942C2E00A69BA2 /* Close.png */; };
-		D3BDA3EE13942C2E00A69BA2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA3E013942C2E00A69BA2 /* Icon.png */; };
 		D3BDA3EF13942C2E00A69BA2 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA3E113942C2E00A69BA2 /* iPad.png */; };
 		D3BDA3F013942C2E00A69BA2 /* mapBG.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA3E213942C2E00A69BA2 /* mapBG.png */; };
 		D3BDA3F113942C2E00A69BA2 /* pinGray.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BDA3E313942C2E00A69BA2 /* pinGray.png */; };
@@ -440,6 +440,7 @@
 		D35872EC13A2B59C006F5966 /* 800.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 800.jpg; sourceTree = "<group>"; };
 		D35872EE13A2B5AB006F5966 /* 900.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 900.jpg; sourceTree = "<group>"; };
 		D35872F013A2B5BC006F5966 /* 1000.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1000.jpg; sourceTree = "<group>"; };
+		D39B255013A7EFD900125904 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D3BDA0E413942B7400A69BA2 /* kenyasafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kenyasafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3BDA0E813942B7400A69BA2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3BDA0EA13942B7400A69BA2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -810,7 +811,6 @@
 		D3BDA3DD13942C2E00A69BA2 /* ArrowPointUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowPointUp.png; sourceTree = "<group>"; };
 		D3BDA3DE13942C2E00A69BA2 /* Buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Buttons.png; sourceTree = "<group>"; };
 		D3BDA3DF13942C2E00A69BA2 /* Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Close.png; sourceTree = "<group>"; };
-		D3BDA3E013942C2E00A69BA2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		D3BDA3E113942C2E00A69BA2 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPad.png; sourceTree = "<group>"; };
 		D3BDA3E213942C2E00A69BA2 /* mapBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapBG.png; sourceTree = "<group>"; };
 		D3BDA3E313942C2E00A69BA2 /* pinGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinGray.png; sourceTree = "<group>"; };
@@ -882,6 +882,7 @@
 		D3BDA0D913942B7400A69BA2 = {
 			isa = PBXGroup;
 			children = (
+				D39B255013A7EFD900125904 /* Icon.png */,
 				D3BDA43E139434E500A69BA2 /* Default-Landscape~ipad.png */,
 				D3BDA3F613942C4C00A69BA2 /* Diary Images */,
 				D3BDA10813942B9700A69BA2 /* Safari Pictures */,
@@ -940,7 +941,6 @@
 				D3BDA3DD13942C2E00A69BA2 /* ArrowPointUp.png */,
 				D3BDA3DE13942C2E00A69BA2 /* Buttons.png */,
 				D3BDA3DF13942C2E00A69BA2 /* Close.png */,
-				D3BDA3E013942C2E00A69BA2 /* Icon.png */,
 				D3BDA3E113942C2E00A69BA2 /* iPad.png */,
 				D3E1E3A61396F4B20041BF7C /* sunnyday.png */,
 				D3E1E3A81396F51B0041BF7C /* night.png */,
@@ -1868,7 +1868,6 @@
 				D3BDA3EB13942C2E00A69BA2 /* ArrowPointUp.png in Resources */,
 				D3BDA3EC13942C2E00A69BA2 /* Buttons.png in Resources */,
 				D3BDA3ED13942C2E00A69BA2 /* Close.png in Resources */,
-				D3BDA3EE13942C2E00A69BA2 /* Icon.png in Resources */,
 				D3BDA3EF13942C2E00A69BA2 /* iPad.png in Resources */,
 				D3BDA3F013942C2E00A69BA2 /* mapBG.png in Resources */,
 				D3BDA3F113942C2E00A69BA2 /* pinGray.png in Resources */,
@@ -1913,6 +1912,7 @@
 				D35872EF13A2B5AB006F5966 /* 900.jpg in Resources */,
 				D35872F113A2B5BC006F5966 /* 1000.jpg in Resources */,
 				D3D7E87113A3E06200D25C0C /* 2000.png in Resources */,
+				D39B255113A7EFD900125904 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2008,12 +2008,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brian Slack";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kenyasafari/kenyasafari-Prefix.pch";
 				INFOPLIST_FILE = "kenyasafari/kenyasafari-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0349B300-974F-4414-A4DA-382F6D9B7267";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

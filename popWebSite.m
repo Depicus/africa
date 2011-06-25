@@ -3,7 +3,7 @@
 //  Kenya Diaries
 //
 //  Created by Brian Slack on 26/05/2011.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011 Depicus. All rights reserved.
 //
 
 #import "popWebSite.h"
