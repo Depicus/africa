@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D34D8A9B13B67A60006CD61F /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = D34D8A9A13B67A60006CD61F /* ReadMe */; };
 		D35872DF13A2A96F006F5966 /* 100.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D35872DE13A2A96F006F5966 /* 100.jpg */; };
 		D35872E113A2AAD7006F5966 /* 200.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D35872E013A2AAD7006F5966 /* 200.jpg */; };
 		D35872E313A2AC70006F5966 /* 300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D35872E213A2AC70006F5966 /* 300.jpg */; };
@@ -430,6 +431,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D34D8A9A13B67A60006CD61F /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 		D35872DE13A2A96F006F5966 /* 100.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 100.jpg; sourceTree = "<group>"; };
 		D35872E013A2AAD7006F5966 /* 200.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 200.jpg; sourceTree = "<group>"; };
 		D35872E213A2AC70006F5966 /* 300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 300.jpg; sourceTree = "<group>"; };
@@ -888,6 +890,7 @@
 				D3BDA10813942B9700A69BA2 /* Safari Pictures */,
 				D3BDA0EE13942B7400A69BA2 /* Main */,
 				D3BDA41B13942C8000A69BA2 /* Popups */,
+				D34D8A9A13B67A60006CD61F /* ReadMe */,
 				D3BDA0E713942B7400A69BA2 /* Frameworks */,
 				D3BDA0E513942B7400A69BA2 /* Products */,
 			);
@@ -1913,6 +1916,7 @@
 				D35872F113A2B5BC006F5966 /* 1000.jpg in Resources */,
 				D3D7E87113A3E06200D25C0C /* 2000.png in Resources */,
 				D39B255113A7EFD900125904 /* Icon.png in Resources */,
+				D34D8A9B13B67A60006CD61F /* ReadMe in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

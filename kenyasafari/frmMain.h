@@ -2,7 +2,7 @@
 //  frmMain.h
 //  Kenya Diaries
 //
-//  Created by Brian Slack on 29/12/2010.
+//  Created by Depicus on 29/12/2010.
 //  Copyright 2010 Depicus. All rights reserved.
 //
 

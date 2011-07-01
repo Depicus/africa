@@ -2,7 +2,7 @@
 //  popWeb.h
 //  Kenya Diaries
 //
-//  Created by Brian Slack on 09/05/2011.
+//  Created by Depicus on 09/05/2011.
 //  Copyright 2011 Depicus. All rights reserved.
 //
 
