@@ -2,7 +2,7 @@
 //  myUIPageControl.h
 //  kenyasafari
 //
-//  Created by Brian Slack on 01/06/2011.
+//  Created by Depicus on 01/06/2011.
 //  Copyright 2011 Depicus. All rights reserved.
 //
 

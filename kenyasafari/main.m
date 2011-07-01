@@ -2,7 +2,7 @@
 //  main.m
 //  kenyasafari
 //
-//  Created by Brian Slack on 30/05/2011.
+//  Created by Depicus on 30/05/2011.
 //  Copyright 2011 Depicus. All rights reserved.
 //
 

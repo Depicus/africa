@@ -2,8 +2,8 @@
 //  mapAnnotation.m
 //  MapLocation
 //
-//  Created by Brian Slack on 14/07/2010.
-//  Copyright 2010 Digital Wired Limited. All rights reserved.
+//  Created by Depicus on 14/07/2010.
+//  Copyright 2010 Depicus. All rights reserved.
 //
 
 #import "mapAnnotation.h"
